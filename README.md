@@ -4,7 +4,7 @@ PageRank is the fundamental algorithm behind Google's Search Engine. It operates
 
 This PageRank was written as part of a mandatory assignment for my course in Linear Algebra and Optimisation back in 2019. It implements two functions: 1) the Random Surfer, which will jump to a random node in the graph or follow a random edge, and increments each visitation to a page stored in a list, and 2) the PageRank itself, represented as a matrix and the eigenvectors holding the importance scores for a page.
 
-EDIT: PageRank's patent expired in 2019. Furthermore, Google no longer relies solely on PageRank for its Search Engine.
+**Note**: PageRank's patent expired in 2019. Furthermore, Google no longer relies solely on PageRank for its Search Engine.
 
 ## Disclaimer
 The code relies on `NetworkX` and `numpy` to run. `numpy` is important as it increases the speed of the PageRank algorithm by an order of magnitude. `NetworkX` is important to read the adjacent list and create a graph from it.
