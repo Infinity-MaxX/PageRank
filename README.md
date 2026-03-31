@@ -33,15 +33,28 @@ python3 PageRank_Algorithm.py <data-file>
 See sample data in the `PageRankExampleData` directory.
 
 ## Example Input
-Data file: `three.txt`
+Data file: `wikipedia.txt`
 ```
-# 4 nodes
-0 1   
-0 2
-1 2   
-2 0   
+# 11 nodes
+1 2
 2 1
-2 3
+3 0 
+3 1
+4 3 
+4 1 
+4 5
+5 1 
+5 4
+6 1 
+6 4
+7 1 
+7 4
+8 1 
+8 4
+9 1 
+9 4
+10 1 
+10 4
 ```
 
 ## Example Output
