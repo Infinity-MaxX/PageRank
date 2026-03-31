@@ -2,14 +2,17 @@
 
 PageRank is the fundamental algorithm behind Google's Search Engine. It operates on the assumption that web pages will link to each other, with the most important websites receiving the most links, allowing them to rank among the first for a specific search. Specifically, PageRank works by counting the number and quality of links to a page. Through that, a rough estimation of the page's importance is determined.
 
-This PageRank was written as part of a mandatory assignment for my course in Linear Algebra and Optimisation back in 2019. It implements two functions: 1) the Random Surfer, which will jump to a random node in the graph or follow a random edge, and increments each visitation to a page stored in a list, and 2) the PageRank itself, represented as a matrix and the eigenvectors holding the importance scores for a page.
+This program was written during my course in Linear Algebra and Optimisation back in 2019. It implements two functions: 1) Random Surfer, which will jump to a random node in the graph or follow a random edge and increment the score total for that page, and 2) PageRank itself, represented as a matrix and its eigenvectors, which hold the importance scores for a page.
 
-**Note**: PageRank's patent expired in 2019. Furthermore, Google no longer relies solely on PageRank for its Search Engine.
+## Prequisites
+The code relies on `NetworkX` and `numpy` to run. `numpy` is important as it increases the speed of the PageRank algorithm by about an order of magnitude. `NetworkX` is for reading in the edges between nodes and creating a graph from it.
+
+You can install each necessary package through `pip install <networkx/numpy>`.
 
 ## Disclaimer
-The code relies on `NetworkX` and `numpy` to run. `numpy` is important as it increases the speed of the PageRank algorithm by an order of magnitude. `NetworkX` is important to read the adjacent list and create a graph from it.
+The code defaults to 100 iterations for Random Surfer and PageRank each. This can result in disagreements between the two sets of results as 100 iterations mean different things for each function. This means that the result may vary each time you run the code, even on the same file. This can be adjusted if needed, but as is, the code works best on graphs of appropriate sizes.
 
-Furthermore, the `bigRandom.txt` data file was excluded from this GitHub due to size issues.
+100 iterations works well for PageRank of any sized graph, but for Random Surfer, you may want to adjust the number of iterations by about 10k to make the scores between the functions more likely to align.
 
 ## PageRank Formula
 $x_{k+1} = (1 - m)Ax_k + (1 - m)Dx_k + mSx_k$
@@ -26,7 +29,7 @@ S: "lowest score" matrix
 ## Usage
 To run this file, download the files and navigate to their placement from the terminal. After, input the following:
 ```
-python3 PageRank_Algorithm.py <data-file>
+python PageRank_Algorithm.py <data-file>
 ```
 **Note**: No random data file will do. The data _must_ be in the form of integer edge pairs, one pair per line. The integer pairs can be duplicates of earlier pairs to represent multiple edges between nodes, but additional edges between nodes are ignored and do not count towards the total importance. Reflexive edges are likewise allowed but ignored. Comments may be included in the data file.
 
